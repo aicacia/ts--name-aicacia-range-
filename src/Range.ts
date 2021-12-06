@@ -16,9 +16,9 @@ export class Range implements Iterator<number>, Iterable<number> {
   private direction: RangeDirection;
 
   constructor(start: number, end: number, step = 1) {
-    this.start = start;
-    this.end = end;
-    this.step = Math.abs(step);
+    this.start = start !== start ? 0 : start;
+    this.end = end !== end ? this.start - 1 : end;
+    this.step = step !== step ? 1 : Math.abs(step);
     this.direction =
       start > end ? RangeDirection.Backward : RangeDirection.Forward;
   }

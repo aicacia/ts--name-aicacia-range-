@@ -68,3 +68,14 @@ tape("range from reverse with step", (assert: tape.Test) => {
   );
   assert.end();
 });
+
+tape("range invalid input", (assert: tape.Test) => {
+  assert.deepEquals(
+    range(NaN, NaN)
+      .iter()
+      .map((x) => x * x)
+      .toArray(),
+    []
+  );
+  assert.end();
+});
