@@ -1,8 +1,8 @@
 import { Iter } from "@aicacia/iter";
 
 export enum RangeDirection {
-  Forward,
-  Backward,
+  Forward = 1,
+  Backward = -1,
 }
 
 export class Range implements Iterator<number>, Iterable<number> {
