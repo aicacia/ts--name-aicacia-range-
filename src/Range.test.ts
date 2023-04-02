@@ -61,10 +61,26 @@ tape("range from with step", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("range from with float step", (assert: tape.Test) => {
+  assert.deepEquals(
+    rangeFrom(0, RangeDirection.Forward, 0.25).iter().take(5).toArray(),
+    [0, 0.25, 0.5, 0.75, 1]
+  );
+  assert.end();
+});
+
 tape("range from reverse with step", (assert: tape.Test) => {
   assert.deepEquals(
     rangeFrom(0, RangeDirection.Backward, 5).iter().take(3).toArray(),
     [0, -5, -10]
+  );
+  assert.end();
+});
+
+tape("range from reverse with float step", (assert: tape.Test) => {
+  assert.deepEquals(
+    rangeFrom(0, RangeDirection.Backward, 0.25).iter().take(5).toArray(),
+    [0, -0.25, -0.5, -0.75, -1]
   );
   assert.end();
 });
